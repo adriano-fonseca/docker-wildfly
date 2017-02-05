@@ -1,0 +1,9 @@
+# Mark the commands below to be run as a batch
+batch
+
+#add Postgress driver
+/subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql,driver-module-name=org.postgresql,driver-class-name=org.postgresql.Driver)
+
+
+# Execute the batch
+run-batch

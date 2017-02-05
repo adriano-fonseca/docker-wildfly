@@ -1,0 +1,25 @@
+version: "2"
+services:
+  wildfly:
+    image: adrianofonseca/wildfly
+    ports:
+     - "8080:8080"
+     - "9991:9990"
+    links:
+          - postgres:postgres
+
+
+  postgres:
+      image: adrianofonseca/postgres:9.5
+      ports:
+          - "5432:5432"
+      environment:
+          - DEBUG=false
+          - DB_USER=app
+          - DB_PASS=app
+          - DB_NAME=app
+      volumes:
+          - postgresql:/var/lib/postgresql
+
+volumes:
+  postgresql:
